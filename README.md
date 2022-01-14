@@ -1,5 +1,5 @@
 ## MIUCourseRegistrationSystem-Problem Statement
-Maharishi International University has asked you to design and develop a Student Registration System for their Computer Science department. The system will enable students to register online for courses each semester, as well as track their progress toward completion of their degree.
+Maharishi International University has asked you to design and develop a Course Registration System for their Computer Science department. The system will enable students to register online for courses each semester, as well as track their progress toward completion of their degree.
 
 When a student first enrolls at the university, he/she uses the MIU Course Registration System to create a plan of study that lists the courses he/she plans on taking to satisfy a particular degree program, and chooses a faculty advisor. The MIU Course Registration System will verify whether or not the proposed plan of study satisfies the requirements of the degree that the student is seeking.
 
