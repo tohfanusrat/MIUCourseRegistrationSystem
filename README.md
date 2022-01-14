@@ -12,3 +12,5 @@ Assuming that (a) the prerequisites for the requested course(s) are satisfied, (
 If (a) and (b) are satisfied, but (c) is not, the student is placed on a first-come, first-served wait-list. If a class/section that he/she was previously waitlisted for becomes available (either because some other student has dropped the class or because the seating capacity for the class has been increased), the student is automatically enrolled in the waitlisted class, and an email message to that effect is sent to the student. It is the student’s responsibility to drop the class if it is no longer desired; otherwise, he/she will be billed for the course.
 
 Students may drop a class up to the end of the first week of the semester in which the class is being taught.
+
+![alt context-diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Context%20Diagram-Course%20Registration%20System.png)
