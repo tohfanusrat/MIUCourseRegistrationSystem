@@ -14,3 +14,4 @@ If (a) and (b) are satisfied, but (c) is not, the student is placed on a first-c
 Students may drop a class up to the end of the first week of the semester in which the class is being taught.
 
 ![alt context-diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Context%20Diagram-Course%20Registration%20System.png)
+![alt use-case-diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Use%20Case%20Diagram%20.png)
