@@ -16,6 +16,7 @@ Students may drop a class up to the end of the first week of the semester in whi
 ![alt context-diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Context%20Diagram-Course%20Registration%20System.png)
 ![alt use-case-diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Use%20Case%20Diagram%20.png)
 ![alt Screenshot%202022-01-14%20at%207.56.52%20PM](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Screenshot%202022-01-14%20at%207.56.52%20PM.png)
-![alt Activity-Diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Activity-Diagram.png)
 ![alt State machine dialogue](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/State%20Machine%20Dialog%20.png)
+![alt Activity-Diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Activity-Diagram.png)
+
 
