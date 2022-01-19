@@ -19,5 +19,6 @@ Students may drop a class up to the end of the first week of the semester in whi
 ![alt State machine dialogue](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/State%20Machine%20Dialog%20.png)
 ![alt Activity-Diagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Activity-Diagram.png)
 ![alt ClassDiagram](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/CourseRegistrationSystemClassDiagram.png)
+![alt Solution20Architecture](https://github.com/tohfanusrat/MIUCourseRegistrationSystem/blob/main/Solution%20Architecture.pdf)
 
 
