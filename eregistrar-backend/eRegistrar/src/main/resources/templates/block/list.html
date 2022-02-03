@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="">
+    <meta name="author" content="O. Kalu">
+    <link rel="icon" href="favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.2/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-EmRcsPP774S9MOi4ywB+JXUWjYnBdyInMzG2XsC5siZEUpexqxOMJW358dCYEjPu" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/master.css}">
+    <title>eRegistrar - Course Registration System</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a style="padding-right: 2em;" class="navbar-brand" href="/eregistrar/home">eRegistrar : : : Course Registration System</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div style="margin-top:1em;margin-bottom:1em;" class="container">
+        <div>
+            <span style="font-size: 2em; color: #32a5e7;">February 2022 FPP Group Registration</span>
+            <span style="float:right;">
+                <a class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#createModal" >Create Academic Block</a>
+            </span>
+            <!-- Modal -->
+            <div class="modal fade" id="createModal" tabindex="-1" role="dialog" aria-labelledby="createModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="createModalLabel">Create Academic Block</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-body mx-3">
+                                <div class="md-form mb-4">
+                                    <input type="text" id="block-code" class="form-control form-control-sm" />
+                                    <label class="form-label" for="block-code">Block Code</label>
+                                </div>
+                                <div class="md-form mb-4">
+                                    <input type="text" id="block-title" class="form-control form-control-sm" />
+                                    <label class="form-label" for="block-title">Block Title</label>
+                                </div>
+                                <div class="md-form mb-4">
+                                    <input type="date" id="start-date" class="form-control form-control-sm" />
+                                    <label class="form-label" for="start-date">Start Date</label>
+                                </div>
+                                <div class="md-form mb-4">
+                                    <input type="date" id="end-date" class="form-control form-control-sm" />
+                                    <label class="form-label" for="end-date">End Date</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Search panel -->
+        <form id="searchBookForm" method="get" action="/eregistrar/academic-block/search">
+            <div style="margin-top:1em;" class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="searchString" name="searchString" placeholder="Enter a string to search for academic block" th:value="${searchString}" autofocus />
+                        <div class="input-group-append">
+                            <button id="btnSubmit" type="submit" class="btn btn-outline-success">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div style="font-size: 1em">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Block Code</th>
+                    <th scope="col">Block Title</th>
+                    <th scope="col">Start Date</th>
+                    <th scope="col">End Date</th>
+                    <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="academicBlock,counter : ${academicBlocks}">
+                    <th scope="row" th:text="${counter.count}+${'.'}"></th>
+                    <td th:text="${academicBlock.blockCode}"></td>
+                    <td th:text="${academicBlock.blockTitle}"></td>
+                    <td th:text="${academicBlock.startDate}"></td>
+                    <td th:text="${academicBlock.endDate}"></td>
+                    <td>
+                        <a th:href="@{'/eregistrar/academic-block/assign/{blockId}'(blockId=${academicBlock.blockId})}" data-toggle="modal" data-target="#exampleModal"><i class="far fa-plus-square" style="color:#114bed;" ></i></a>
+                        <a th:href="@{'/eregistrar/academic-block/course/{blockId}'(blockId=${academicBlock.blockId})}"><i class="far fa-eye" style="color:#42b0f5;" ></i></a>
+                        <a th:href="@{'/eregistrar/academic-block/edit/{blockId}'(blockId=${academicBlock.blockId})}"><i class="far fa-edit" style="color:#f5c542;" ></i></a>
+                        <a th:href="@{'/eregistrar/academic-block/delete/{blockId}'(blockId=${academicBlock.blockId})}"><i class="far fa-trash-alt" style="color:#f5426c;" ></i></a>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Assign Course To Faculty</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="modal-body mx-3">
+                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                                <option selected>Select Course</option>
+                                                <option value="1">Fundamental Programming Practices</option>
+                                                <option value="2">Modern Programming Practices</option>
+                                                <option value="3">Big Data Technology</option>
+                                                <option value="4">Algorithms</option>
+                                            </select>
+                                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                                <option selected>Select Faculty</option>
+                                                <option value="1">Paul Corazza</option>
+                                                <option value="2">Obinna Kalu</option>
+                                                <option value="3">Mrudula Mukadam</option>
+                                                <option value="4">Emdad Khan</option>
+                                            </select>
+                                            <div class="md-form mb-4">
+                                                <input type="text" id="capacity" class="form-control form-control-sm" />
+                                                <label class="form-label" for="capacity">Capacity</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Assign</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+<!--                <tr th:if="${academicBlockCount < 1}">-->
+<!--                    <td colspan="8" th:align="center">No course offered!</td>-->
+<!--                </tr>-->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">Tohfa & Anwar : : : CS425-SWE</span>
+            <span style="float:right;" class="text-muted">&copy; January 2022</span>
+        </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
